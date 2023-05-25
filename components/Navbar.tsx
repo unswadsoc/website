@@ -3,23 +3,23 @@ import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-stone-200">
       <div className="navbar-start">
-        <a className="btn btn-ghost">
+        <Link href='/' className="">
           <Image
             src="/icons/logo.svg"
             alt="ADSOC Logo"
-            className="dark:invert"
-            width={100}
-            height={30}
+            width={140}
+            height={50}
             priority
+            className='object-contain pl-4'
           />
-        </a>
+        </Link>
       </div>
       <div className="navbar-end hidden md:flex">
         <ul className="menu menu-horizontal px-1">
           <li><Link href='/events'>Events</Link></li>
-          <li><Link href='/our-team'>Our team</Link></li>
+          <li><Link href='/our-team'>Our Team</Link></li>
           <li><Link href='/sponsors'>Sponsors</Link></li>
         </ul>
       </div>
@@ -29,7 +29,7 @@ export default function Navbar() {
         </label>
         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-24 p-2 shadow bg-base-100 rounded-box w-52">
           <li><Link href='/events'>Events</Link></li>
-          <li><Link href='/our-team'>Our team</Link></li>
+          <li><Link href='/our-team'>Our Team</Link></li>
           <li><Link href='/sponsors'>Sponsors</Link></li>
         </ul>
       </div>

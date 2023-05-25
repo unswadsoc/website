@@ -2,16 +2,13 @@ import Image from 'next/image'
 
 export default function Home() {
 
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <div className="hero min-h-screen" style={{ backgroundImage: `url("/hero.jpeg")` }}>
+    <main className="bg-stone-100 flex min-h-screen flex-col items-center justify-between">
+      <div className="hero min-h-[80vh]" style={{ backgroundImage: `url("/hero.jpeg")` }}>
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-2xl">
             <h1 className="mb-5 text-5xl font-bold text-white">UNSW Adventure Society</h1>
-            {/* <p className="mb-5">Description here</p> */}
-            {/* <button className="btn btn-primary">Get Started</button> */}
           </div>
         </div>
       </div>
