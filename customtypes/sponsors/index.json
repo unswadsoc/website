@@ -1,0 +1,15 @@
+{
+  "id": "sponsors",
+  "label": "sponsors",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": { "choices": { "sponsor": { "type": "SharedSlice" } } }
+      }
+    }
+  }
+}
