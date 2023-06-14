@@ -14,6 +14,12 @@ const nextConfig = {
             port: '',
             pathname: '**',
           },
+          {
+            protocol: 'https',
+            hostname: 'scontent-atl3-1.xx.fbcdn.net',
+            port: '',
+            pathname: '**',
+          },
         ],
       },
 }

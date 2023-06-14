@@ -1,0 +1,369 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "teamMemberRightProfile",
+		"primary": {
+			"name": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Alex Manefield",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"position": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "President",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Year and Degree: 3rd year Advanced Science",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 15
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enjoys: Taekwondo, Overnight hiking, hitting the pub, music, difficult video games 🎮, Skiing",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 6
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Fun fact: Obsession with fast cars going in circles that could be deemed almost unhealthy.",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 8
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Favourite ADSOC memory: Being a pirate and capsizing everyone at kayaking.",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 22
+								}
+							]
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"profile": {
+				"origin": {
+					"id": "OBufvGMaBaQ",
+					"url": "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxwcm9maWxlfGVufDB8fHx8MTY4NjQ0Mzg5M3ww&ixlib=rb-4.0.3&q=85",
+					"width": 5408,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxwcm9maWxlfGVufDB8fHx8MTY4NjQ0Mzg5M3ww&ixlib=rb-4.0.3&q=85",
+				"width": 5408,
+				"height": 4000,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "teamMemberLeftProfile",
+		"primary": {
+			"name": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Alex Manefield",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"position": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "President",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Year and Degree: 3rd year Advanced Science",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 15
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enjoys: Taekwondo, Overnight hiking, hitting the pub,music, difficult video games 🎮, Skiing",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 6
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Fun fact: Obsession with fast cars going in circles that could be deemed almost unhealthy.",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 8
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Favourite ADSOC memory: Being a pirate when going Kayaking, capsizing everyone.",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 22
+								}
+							]
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"profile": {
+				"origin": {
+					"id": "OBufvGMaBaQ",
+					"url": "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxwcm9maWxlfGVufDB8fHx8MTY4NjQ0Mzg5M3ww&ixlib=rb-4.0.3&q=85",
+					"width": 5408,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxwcm9maWxlfGVufDB8fHx8MTY4NjQ0Mzg5M3ww&ixlib=rb-4.0.3&q=85",
+				"width": 5408,
+				"height": 4000,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"name": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Alex Manfield",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 13
+								}
+							]
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Year and Degree: 3rd year Advanced Science",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 15
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enjoys: Taekwondo, Overnight hiking, hitting the pub, music, difficult video games 🎮, Skiing",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 6
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Fun fact: Obsession with fast cars going in circles that could be deemed almost unhealthy.",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 8
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Favourite ADSOC memory: Being a pirate when going Kayaking, capsizing everyone.",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 22
+								}
+							]
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"profile": {
+				"origin": {
+					"id": "5OyGRn_r9Y4",
+					"url": "https://images.unsplash.com/photo-1497316730643-415fac54a2af?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw2fHxwcm9maWxlfGVufDB8fHx8MTY4NjQ0Mzg5M3ww&ixlib=rb-4.0.3&q=85",
+					"width": 2400,
+					"height": 3000
+				},
+				"url": "https://images.unsplash.com/photo-1497316730643-415fac54a2af?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw2fHxwcm9maWxlfGVufDB8fHx8MTY4NjQ0Mzg5M3ww&ixlib=rb-4.0.3&q=85",
+				"width": 2400,
+				"height": 3000,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"position": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "President",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

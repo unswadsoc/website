@@ -1,0 +1,173 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"year": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "2022",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"members": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "President: Christine Chen",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 9
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Vice President: Coltrane Xu Williamson",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 14
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Treasurer: Lily Jj",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 9
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Secretary: Jane Wang",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 9
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Arc Delegate: Dom Zeng",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 12
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Events Directors: Alex Manefield & Daniel Cho",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 16
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Marketing Directors: Nicholas Shao & Leo Yu",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 19
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "HR Directors: Erlin Li & Sophia He",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 12
+								}
+							]
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"year",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Ex veniam ea nulla consequat laboris duis aute nisi incididunt eu amet dolore. Commodo nostrud ex voluptate adipisicing dolor excepteur. Minim adipisicing duis et fugiat do reprehenderit fugiat deserunt sint fugiat quis."
+									}
+								}
+							]
+						}
+					],
+					[
+						"members",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Aliqua labore do eu."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]

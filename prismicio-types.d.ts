@@ -6,69 +6,526 @@ import type * as prismicClient from "@prismicio/client";
 type Simplify<T> = {
   [KeyType in keyof T]: T[KeyType];
 };
-/** Content for sponsors documents */
-interface SponsorsDocumentData {
-  /**
-   * Slice Zone field in *sponsors*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: sponsors.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
-   *
-   */
-  slices: prismic.SliceZone<SponsorsDocumentDataSlicesSlice>;
-}
+/** Content for Footer documents */
+type FooterDocumentData = Record<string, never>;
 /**
- * Slice for *sponsors → Slice Zone*
+ * Footer document from Prismic
  *
- */
-type SponsorsDocumentDataSlicesSlice = SponsorSlice;
-/**
- * sponsors document from Prismic
- *
- * - **API ID**: `sponsors`
+ * - **API ID**: `footer`
  * - **Repeatable**: `false`
  * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type SponsorsDocument<Lang extends string = string> =
+export type FooterDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
-    Simplify<SponsorsDocumentData>,
-    "sponsors",
+    Simplify<FooterDocumentData>,
+    "footer",
     Lang
   >;
-export type AllDocumentTypes = SponsorsDocument;
-/**
- * Primary content in Sponsor → Primary
- *
- */
-interface SponsorSliceDefaultPrimary {
+/** Content for Navigation documents */
+interface NavigationDocumentData {
   /**
-   * logo field in *Sponsor → Primary*
+   * Logo field in *Navigation*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: sponsor.primary.logo
+   * - **API ID Path**: navigation.logo
+   * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
   logo: prismic.ImageField<never>;
   /**
-   * link field in *Sponsor → Primary*
+   * Slice Zone field in *Navigation*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismic.SliceZone<NavigationDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Navigation → Slice Zone*
+ *
+ */
+type NavigationDocumentDataSlicesSlice = NavBarLinkSlice;
+/**
+ * Navigation document from Prismic
+ *
+ * - **API ID**: `navigation`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NavigationDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<NavigationDocumentData>,
+    "navigation",
+    Lang
+  >;
+/** Content for Page documents */
+interface PageDocumentData {
+  /**
+   * Title field in *Page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismic.RichTextField;
+  /**
+   * Slice Zone field in *Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Page → Slice Zone*
+ *
+ */
+type PageDocumentDataSlicesSlice =
+  | SponsorSlice
+  | HeroSlice
+  | TeamMemberSlice
+  | PageTextSlice
+  | PastTeamSlice
+  | HeadingSlice
+  | FacebookEventsSlice;
+/**
+ * Page document from Prismic
+ *
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+export type AllDocumentTypes =
+  | FooterDocument
+  | NavigationDocument
+  | PageDocument;
+/**
+ * Default variation for FacebookEvents Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FacebookEventsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+/**
+ * Upcoming variation for FacebookEvents Slice
+ *
+ * - **API ID**: `upcoming`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FacebookEventsSliceUpcoming = prismic.SharedSliceVariation<
+  "upcoming",
+  Record<string, never>,
+  never
+>;
+/**
+ * Past variation for FacebookEvents Slice
+ *
+ * - **API ID**: `past`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FacebookEventsSlicePast = prismic.SharedSliceVariation<
+  "past",
+  Record<string, never>,
+  never
+>;
+/**
+ * Slice variation for *FacebookEvents*
+ *
+ */
+type FacebookEventsSliceVariation =
+  | FacebookEventsSliceDefault
+  | FacebookEventsSliceUpcoming
+  | FacebookEventsSlicePast;
+/**
+ * FacebookEvents Shared Slice
+ *
+ * - **API ID**: `facebook_events`
+ * - **Description**: `FacebookEvents`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FacebookEventsSlice = prismic.SharedSlice<
+  "facebook_events",
+  FacebookEventsSliceVariation
+>;
+/**
+ * Primary content in Heading → Primary
+ *
+ */
+interface HeadingSliceDefaultPrimary {
+  /**
+   * Heading field in *Heading → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: heading.primary.heading
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  heading: prismic.RichTextField;
+}
+/**
+ * Default variation for Heading Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeadingSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeadingSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *Heading*
+ *
+ */
+type HeadingSliceVariation = HeadingSliceDefault;
+/**
+ * Heading Shared Slice
+ *
+ * - **API ID**: `heading`
+ * - **Description**: `Heading`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeadingSlice = prismic.SharedSlice<
+  "heading",
+  HeadingSliceVariation
+>;
+/**
+ * Primary content in Hero → Primary
+ *
+ */
+interface HeroSliceDefaultPrimary {
+  /**
+   * image field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * title field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  title: prismic.KeyTextField;
+}
+/**
+ * Default variation for Hero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *Hero*
+ *
+ */
+type HeroSliceVariation = HeroSliceDefault;
+/**
+ * Hero Shared Slice
+ *
+ * - **API ID**: `hero`
+ * - **Description**: `Hero`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+/**
+ * Primary content in NavigationItem → Primary
+ *
+ */
+interface NavBarLinkSliceDefaultPrimary {
+  /**
+   * Name field in *NavigationItem → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_bar_link.primary.name
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  name: prismic.RichTextField;
+  /**
+   * Link field in *NavigationItem → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_bar_link.primary.link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  link: prismic.KeyTextField;
+}
+/**
+ * Item in NavigationItem → Items
+ *
+ */
+export interface NavBarLinkSliceDefaultItem {
+  /**
+   * Child Name field in *NavigationItem → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_bar_link.items[].child_name
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  child_name: prismic.RichTextField;
+  /**
+   * Child Link field in *NavigationItem → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_bar_link.items[].child_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  child_link: prismic.KeyTextField;
+}
+/**
+ * Default variation for NavigationItem Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NavBarLinkSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NavBarLinkSliceDefaultPrimary>,
+  Simplify<NavBarLinkSliceDefaultItem>
+>;
+/**
+ * Slice variation for *NavigationItem*
+ *
+ */
+type NavBarLinkSliceVariation = NavBarLinkSliceDefault;
+/**
+ * NavigationItem Shared Slice
+ *
+ * - **API ID**: `nav_bar_link`
+ * - **Description**: `NavBarLink`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NavBarLinkSlice = prismic.SharedSlice<
+  "nav_bar_link",
+  NavBarLinkSliceVariation
+>;
+/**
+ * Primary content in Text → Primary
+ *
+ */
+interface PageTextSliceDefaultPrimary {
+  /**
+   * Text field in *Text → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_text.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+}
+/**
+ * Default variation for Text Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PageTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PageTextSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *Text*
+ *
+ */
+type PageTextSliceVariation = PageTextSliceDefault;
+/**
+ * Text Shared Slice
+ *
+ * - **API ID**: `page_text`
+ * - **Description**: `PageText`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PageTextSlice = prismic.SharedSlice<
+  "page_text",
+  PageTextSliceVariation
+>;
+/**
+ * Primary content in PastTeam → Primary
+ *
+ */
+interface PastTeamSliceDefaultPrimary {
+  /**
+   * Year field in *PastTeam → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: past_team.primary.year
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  year: prismic.RichTextField;
+  /**
+   * Members field in *PastTeam → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: past_team.primary.members
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  members: prismic.RichTextField;
+}
+/**
+ * Item in PastTeam → Items
+ *
+ */
+export interface PastTeamSliceDefaultItem {
+  /**
+   * Year field in *PastTeam → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: past_team.items[].year
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  year: prismic.RichTextField;
+  /**
+   * Members field in *PastTeam → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: past_team.items[].members
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  members: prismic.RichTextField;
+}
+/**
+ * Default variation for PastTeam Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PastTeamSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PastTeamSliceDefaultPrimary>,
+  Simplify<PastTeamSliceDefaultItem>
+>;
+/**
+ * Slice variation for *PastTeam*
+ *
+ */
+type PastTeamSliceVariation = PastTeamSliceDefault;
+/**
+ * PastTeam Shared Slice
+ *
+ * - **API ID**: `past_team`
+ * - **Description**: `PastTeam`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PastTeamSlice = prismic.SharedSlice<
+  "past_team",
+  PastTeamSliceVariation
+>;
+/**
+ * Item in Sponsors → Items
+ *
+ */
+export interface SponsorSliceDefaultItem {
+  /**
+   * Logo field in *Sponsors → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sponsor.items[].logo
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  logo: prismic.ImageField<never>;
+  /**
+   * Link field in *Sponsors → Items*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: sponsor.primary.link
+   * - **API ID Path**: sponsor.items[].link
    * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
    *
    */
   link: prismic.LinkField;
+  /**
+   * Title field in *Sponsors → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sponsor.items[].title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismic.RichTextField;
 }
 /**
- * Default variation for Sponsor Slice
+ * Default variation for Sponsors Slice
  *
  * - **API ID**: `default`
  * - **Description**: `Default`
@@ -77,16 +534,16 @@ interface SponsorSliceDefaultPrimary {
  */
 export type SponsorSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<SponsorSliceDefaultPrimary>,
-  never
+  Record<string, never>,
+  Simplify<SponsorSliceDefaultItem>
 >;
 /**
- * Slice variation for *Sponsor*
+ * Slice variation for *Sponsors*
  *
  */
 type SponsorSliceVariation = SponsorSliceDefault;
 /**
- * Sponsor Shared Slice
+ * Sponsors Shared Slice
  *
  * - **API ID**: `sponsor`
  * - **Description**: `Sponsor`
@@ -97,6 +554,257 @@ export type SponsorSlice = prismic.SharedSlice<
   "sponsor",
   SponsorSliceVariation
 >;
+/**
+ * Item in Stats → Items
+ *
+ */
+export interface StatsSliceDefaultItem {
+  /**
+   * Stat field in *Stats → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: stats.items[].stat
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  stat: prismic.RichTextField;
+  /**
+   * Link field in *Stats → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: stats.items[].link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+}
+/**
+ * Default variation for Stats Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type StatsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<StatsSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Stats*
+ *
+ */
+type StatsSliceVariation = StatsSliceDefault;
+/**
+ * Stats Shared Slice
+ *
+ * - **API ID**: `stats`
+ * - **Description**: `Stats`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type StatsSlice = prismic.SharedSlice<"stats", StatsSliceVariation>;
+/**
+ * Primary content in TeamMember → Primary
+ *
+ */
+interface TeamMemberSliceDefaultPrimary {
+  /**
+   * Name field in *TeamMember → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_member.primary.name
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  name: prismic.RichTextField;
+  /**
+   * Position field in *TeamMember → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_member.primary.position
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  position: prismic.RichTextField;
+  /**
+   * Description field in *TeamMember → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_member.primary.description
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismic.RichTextField;
+  /**
+   * Profile field in *TeamMember → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_member.primary.profile
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  profile: prismic.ImageField<never>;
+}
+/**
+ * Default variation for TeamMember Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TeamMemberSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TeamMemberSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Primary content in TeamMember → Primary
+ *
+ */
+interface TeamMemberSliceTeamMemberLeftProfilePrimary {
+  /**
+   * Name field in *TeamMember → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_member.primary.name
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  name: prismic.RichTextField;
+  /**
+   * Position field in *TeamMember → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_member.primary.position
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  position: prismic.RichTextField;
+  /**
+   * Description field in *TeamMember → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_member.primary.description
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismic.RichTextField;
+  /**
+   * Profile field in *TeamMember → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_member.primary.profile
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  profile: prismic.ImageField<never>;
+}
+/**
+ * Team Member - Left Profile variation for TeamMember Slice
+ *
+ * - **API ID**: `teamMemberLeftProfile`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TeamMemberSliceTeamMemberLeftProfile = prismic.SharedSliceVariation<
+  "teamMemberLeftProfile",
+  Simplify<TeamMemberSliceTeamMemberLeftProfilePrimary>,
+  never
+>;
+/**
+ * Primary content in TeamMember → Primary
+ *
+ */
+interface TeamMemberSliceTeamMemberRightProfilePrimary {
+  /**
+   * Name field in *TeamMember → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_member.primary.name
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  name: prismic.RichTextField;
+  /**
+   * Position field in *TeamMember → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_member.primary.position
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  position: prismic.RichTextField;
+  /**
+   * Description field in *TeamMember → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_member.primary.description
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismic.RichTextField;
+  /**
+   * Profile field in *TeamMember → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_member.primary.profile
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  profile: prismic.ImageField<never>;
+}
+/**
+ * Team Member - Right Profile variation for TeamMember Slice
+ *
+ * - **API ID**: `teamMemberRightProfile`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TeamMemberSliceTeamMemberRightProfile =
+  prismic.SharedSliceVariation<
+    "teamMemberRightProfile",
+    Simplify<TeamMemberSliceTeamMemberRightProfilePrimary>,
+    never
+  >;
+/**
+ * Slice variation for *TeamMember*
+ *
+ */
+type TeamMemberSliceVariation =
+  | TeamMemberSliceDefault
+  | TeamMemberSliceTeamMemberLeftProfile
+  | TeamMemberSliceTeamMemberRightProfile;
+/**
+ * TeamMember Shared Slice
+ *
+ * - **API ID**: `team_member`
+ * - **Description**: `TeamMember`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TeamMemberSlice = prismic.SharedSlice<
+  "team_member",
+  TeamMemberSliceVariation
+>;
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -106,14 +814,58 @@ declare module "@prismicio/client" {
   }
   namespace Content {
     export type {
-      SponsorsDocumentData,
-      SponsorsDocumentDataSlicesSlice,
-      SponsorsDocument,
+      FooterDocumentData,
+      FooterDocument,
+      NavigationDocumentData,
+      NavigationDocumentDataSlicesSlice,
+      NavigationDocument,
+      PageDocumentData,
+      PageDocumentDataSlicesSlice,
+      PageDocument,
       AllDocumentTypes,
-      SponsorSliceDefaultPrimary,
+      FacebookEventsSliceDefault,
+      FacebookEventsSliceUpcoming,
+      FacebookEventsSlicePast,
+      FacebookEventsSliceVariation,
+      FacebookEventsSlice,
+      HeadingSliceDefaultPrimary,
+      HeadingSliceDefault,
+      HeadingSliceVariation,
+      HeadingSlice,
+      HeroSliceDefaultPrimary,
+      HeroSliceDefault,
+      HeroSliceVariation,
+      HeroSlice,
+      NavBarLinkSliceDefaultPrimary,
+      NavBarLinkSliceDefaultItem,
+      NavBarLinkSliceDefault,
+      NavBarLinkSliceVariation,
+      NavBarLinkSlice,
+      PageTextSliceDefaultPrimary,
+      PageTextSliceDefault,
+      PageTextSliceVariation,
+      PageTextSlice,
+      PastTeamSliceDefaultPrimary,
+      PastTeamSliceDefaultItem,
+      PastTeamSliceDefault,
+      PastTeamSliceVariation,
+      PastTeamSlice,
+      SponsorSliceDefaultItem,
       SponsorSliceDefault,
       SponsorSliceVariation,
       SponsorSlice,
+      StatsSliceDefaultItem,
+      StatsSliceDefault,
+      StatsSliceVariation,
+      StatsSlice,
+      TeamMemberSliceDefaultPrimary,
+      TeamMemberSliceDefault,
+      TeamMemberSliceTeamMemberLeftProfilePrimary,
+      TeamMemberSliceTeamMemberLeftProfile,
+      TeamMemberSliceTeamMemberRightProfilePrimary,
+      TeamMemberSliceTeamMemberRightProfile,
+      TeamMemberSliceVariation,
+      TeamMemberSlice,
     };
   }
 }
