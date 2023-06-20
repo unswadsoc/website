@@ -15,7 +15,7 @@
 								{
 									"type": "paragraph",
 									"content": {
-										"text": "Laborum tempor voluptate labore aliqua cupidatat mollit veniam labore nostrud."
+										"text": "Quis laborum reprehenderit mollit enim."
 									}
 								}
 							]
@@ -27,8 +27,16 @@
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
-								"url": "http://twitter.com"
+								"url": "http://google.com"
 							}
+						}
+					],
+					[
+						"buttontext",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "settlers",
+							"type": "Text"
 						}
 					]
 				]

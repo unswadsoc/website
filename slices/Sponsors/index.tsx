@@ -1,4 +1,4 @@
-import SponsorCard from "@/components/SponsorCard";
+import SponsorLogo from "@/components/SponsorLogo";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
@@ -15,11 +15,11 @@ const Sponsor = ({ slice }: SponsorProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className='flex flex-wrap-reverse gap-x-20 gap-y-6 justify-center max-w-5xl'
+      className='flex flex-wrap-reverse gap-x-20 gap-y-16 justify-center max-w-5xl px-4 my-32'
     >         
       { slice.items.map((s: any) => {
         return (
-          <SponsorCard key={s.link} sponsor={s} />
+          <SponsorLogo key={s.link} sponsor={s} />
         )
       })}
     </section>

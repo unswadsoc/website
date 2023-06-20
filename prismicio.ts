@@ -13,32 +13,11 @@ export const repositoryName = config.repositoryName;
  *
  * {@link https://prismic.io/docs/route-resolver#route-resolver}
  */
-// TODO: Update the routes array to match your project's route structure.
 const routes: prismic.ClientConfig["routes"] = [
   {
     type: "page",
     path: "/:uid",
-  },
-  // {
-  //   type: "page",
-  //   uid: "home",
-  //   path: "/",
-  // },
-  // {
-  //   type: "page",
-  //   uid: "about",
-  //   path: "/about",
-  // },
-  // {
-  //   type: "page",
-  //   uid: "team",
-  //   path: "/team",
-  // },
-  // {
-  //   type: "page",
-  //   uid: "sponsors",
-  //   path: "/sponsors",
-  // },
+  }
 ];
 
 /**
@@ -51,7 +30,8 @@ export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
   const client = prismic.createClient(repositoryName, {
     routes,
     fetchOptions: {
-      cache: process.env.NODE_ENV === 'production' ? 'force-cache' : 'no-store',
+      // cache: process.env.NODE_ENV === 'production' ? 'force-cache' : 'no-store',
+      cache: 'force-cache',
       next: { tags: ['prismic'] }
     },
     ...config,

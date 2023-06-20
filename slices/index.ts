@@ -7,9 +7,12 @@ export const components = {
   heading: dynamic(() => import("./Heading")),
   hero: dynamic(() => import("./Hero")),
   nav_bar_link: dynamic(() => import("./NavigationItem")),
+  newsletter: dynamic(() => import("./Newsletter")),
   page_text: dynamic(() => import("./Text")),
   past_team: dynamic(() => import("./PastTeam")),
+  side_content: dynamic(() => import("./SideContent")),
   sponsor: dynamic(() => import("./Sponsors")),
+  sponsor_deals: dynamic(() => import("./SponsorDeals")),
   stats: dynamic(() => import("./Stats")),
   team_member: dynamic(() => import("./TeamMember")),
 };

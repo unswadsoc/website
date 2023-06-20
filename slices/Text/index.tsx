@@ -18,7 +18,7 @@ const Text = ({ slice }: TextProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="max-w-4xl p-4"
+      className="max-w-4xl p-10"
     >
       <PrismicRichText
         field={slice.primary.text}

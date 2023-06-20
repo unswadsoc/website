@@ -1,3 +1,20 @@
+declare global {
+  interface Window { CustomSubstackWidget: SubstackWidget; }
+}
+
+type SubstackWidget = {
+  substackUrl: string
+  placeholder: string
+  buttonText: string
+  theme: string
+  colors: {
+    primary: string
+    input: string
+    email: string
+    text: string
+  }
+}
+
 export enum Tense {
   UPCOMING,
   PAST

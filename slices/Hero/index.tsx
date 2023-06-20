@@ -10,11 +10,13 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  * Component for "Hero" Slices.
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
+  const height = slice.variation === "default" && '80vh'
+  // const height = slice.variation === 'small' && '50vh'
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className='hero min-h-[80vh] mb-4'
+      className={`hero min-h-[${height}]`}
       style={{ backgroundImage: `url('${slice.primary.image.url}')` }}
     >
         <div className='hero-overlay bg-opacity-60'></div>

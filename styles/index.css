@@ -21,4 +21,7 @@
     ul {
       @apply pl-5 list-disc list-inside;
     }
+    .hero {
+        min-height: 70vh;
+    }
   }

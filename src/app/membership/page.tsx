@@ -1,4 +1,6 @@
+import { SliceZone } from '@prismicio/react';
 import { createClient } from 'prismicio';
+import { components } from 'slices';
 
 export default async function Membership() {
   const client = createClient();
@@ -6,7 +8,7 @@ export default async function Membership() {
 
   return (
     <>
-      Membership
+      <SliceZone slices={page.data.slices} components={components} />
     </>
   );
 }

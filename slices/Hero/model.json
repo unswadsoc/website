@@ -22,6 +22,25 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "small",
+      "name": "Small",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": { "label": "image", "constraint": {}, "thumbnails": [] }
+        },
+        "title": {
+          "type": "Text",
+          "config": { "label": "title", "placeholder": "" }
+        }
+      },
+      "items": {}
     }
   ]
 }

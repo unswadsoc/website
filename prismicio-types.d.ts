@@ -7,7 +7,35 @@ type Simplify<T> = {
   [KeyType in keyof T]: T[KeyType];
 };
 /** Content for Footer documents */
-type FooterDocumentData = Record<string, never>;
+interface FooterDocumentData {
+  /**
+   * Logo field in *Footer*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  logo: prismic.ImageField<never>;
+  /**
+   * Slice Zone field in *Footer*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Footer → Slice Zone*
+ *
+ */
+type FooterDocumentDataSlicesSlice = NavBarLinkSlice;
 /**
  * Footer document from Prismic
  *
@@ -104,7 +132,11 @@ type PageDocumentDataSlicesSlice =
   | PageTextSlice
   | PastTeamSlice
   | HeadingSlice
-  | FacebookEventsSlice;
+  | FacebookEventsSlice
+  | SponsorDealsSlice
+  | StatsSlice
+  | NewsletterSlice
+  | SideContentSlice;
 /**
  * Page document from Prismic
  *
@@ -265,10 +297,49 @@ export type HeroSliceDefault = prismic.SharedSliceVariation<
   never
 >;
 /**
+ * Primary content in Hero → Primary
+ *
+ */
+interface HeroSliceSmallPrimary {
+  /**
+   * image field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * title field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  title: prismic.KeyTextField;
+}
+/**
+ * Small variation for Hero Slice
+ *
+ * - **API ID**: `small`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeroSliceSmall = prismic.SharedSliceVariation<
+  "small",
+  Simplify<HeroSliceSmallPrimary>,
+  never
+>;
+/**
  * Slice variation for *Hero*
  *
  */
-type HeroSliceVariation = HeroSliceDefault;
+type HeroSliceVariation = HeroSliceDefault | HeroSliceSmall;
 /**
  * Hero Shared Slice
  *
@@ -296,13 +367,13 @@ interface NavBarLinkSliceDefaultPrimary {
   /**
    * Link field in *NavigationItem → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
    * - **API ID Path**: nav_bar_link.primary.link
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
    *
    */
-  link: prismic.KeyTextField;
+  link: prismic.LinkField;
 }
 /**
  * Item in NavigationItem → Items
@@ -322,13 +393,23 @@ export interface NavBarLinkSliceDefaultItem {
   /**
    * Child Link field in *NavigationItem → Items*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
    * - **API ID Path**: nav_bar_link.items[].child_link
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
    *
    */
-  child_link: prismic.KeyTextField;
+  child_link: prismic.LinkField;
+  /**
+   * Icon field in *NavigationItem → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_bar_link.items[].icon
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  icon: prismic.ImageField<never>;
 }
 /**
  * Default variation for NavigationItem Slice
@@ -359,6 +440,62 @@ type NavBarLinkSliceVariation = NavBarLinkSliceDefault;
 export type NavBarLinkSlice = prismic.SharedSlice<
   "nav_bar_link",
   NavBarLinkSliceVariation
+>;
+/**
+ * Primary content in Newsletter → Primary
+ *
+ */
+interface NewsletterSliceDefaultPrimary {
+  /**
+   * Text field in *Newsletter → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Embed field in *Newsletter → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.primary.embed
+   * - **Documentation**: https://prismic.io/docs/core-concepts/embed
+   *
+   */
+  embed: prismic.EmbedField;
+}
+/**
+ * Default variation for Newsletter Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NewsletterSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NewsletterSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *Newsletter*
+ *
+ */
+type NewsletterSliceVariation = NewsletterSliceDefault;
+/**
+ * Newsletter Shared Slice
+ *
+ * - **API ID**: `newsletter`
+ * - **Description**: `Newsletter`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NewsletterSlice = prismic.SharedSlice<
+  "newsletter",
+  NewsletterSliceVariation
 >;
 /**
  * Primary content in Text → Primary
@@ -489,6 +626,143 @@ export type PastTeamSlice = prismic.SharedSlice<
   PastTeamSliceVariation
 >;
 /**
+ * Primary content in SideContent → Primary
+ *
+ */
+interface SideContentSliceDefaultPrimary {
+  /**
+   * Image field in *SideContent → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: side_content.primary.image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * Text field in *SideContent → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: side_content.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Link field in *SideContent → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: side_content.primary.link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+  /**
+   * ButtonText field in *SideContent → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: side_content.primary.buttontext
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  buttontext: prismic.KeyTextField;
+}
+/**
+ * Default variation for SideContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SideContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SideContentSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Primary content in SideContent → Primary
+ *
+ */
+interface SideContentSliceRightContentPrimary {
+  /**
+   * Image field in *SideContent → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: side_content.primary.image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * Text field in *SideContent → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: side_content.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Link field in *SideContent → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: side_content.primary.link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+  /**
+   * ButtonText field in *SideContent → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: side_content.primary.buttontext
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  buttontext: prismic.KeyTextField;
+}
+/**
+ * RightContent variation for SideContent Slice
+ *
+ * - **API ID**: `rightContent`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SideContentSliceRightContent = prismic.SharedSliceVariation<
+  "rightContent",
+  Simplify<SideContentSliceRightContentPrimary>,
+  never
+>;
+/**
+ * Slice variation for *SideContent*
+ *
+ */
+type SideContentSliceVariation =
+  | SideContentSliceDefault
+  | SideContentSliceRightContent;
+/**
+ * SideContent Shared Slice
+ *
+ * - **API ID**: `side_content`
+ * - **Description**: `SideContent`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SideContentSlice = prismic.SharedSlice<
+  "side_content",
+  SideContentSliceVariation
+>;
+/**
  * Item in Sponsors → Items
  *
  */
@@ -555,6 +829,72 @@ export type SponsorSlice = prismic.SharedSlice<
   SponsorSliceVariation
 >;
 /**
+ * Item in SponsorDeals → Items
+ *
+ */
+export interface SponsorDealsSliceDefaultItem {
+  /**
+   * Image field in *SponsorDeals → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sponsor_deals.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * Description field in *SponsorDeals → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sponsor_deals.items[].description
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismic.RichTextField;
+  /**
+   * Link field in *SponsorDeals → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sponsor_deals.items[].link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+}
+/**
+ * Default variation for SponsorDeals Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SponsorDealsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<SponsorDealsSliceDefaultItem>
+>;
+/**
+ * Slice variation for *SponsorDeals*
+ *
+ */
+type SponsorDealsSliceVariation = SponsorDealsSliceDefault;
+/**
+ * SponsorDeals Shared Slice
+ *
+ * - **API ID**: `sponsor_deals`
+ * - **Description**: `SponsorDeals`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SponsorDealsSlice = prismic.SharedSlice<
+  "sponsor_deals",
+  SponsorDealsSliceVariation
+>;
+/**
  * Item in Stats → Items
  *
  */
@@ -570,7 +910,7 @@ export interface StatsSliceDefaultItem {
    */
   stat: prismic.RichTextField;
   /**
-   * Link field in *Stats → Items*
+   * ButtonLink field in *Stats → Items*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -579,6 +919,16 @@ export interface StatsSliceDefaultItem {
    *
    */
   link: prismic.LinkField;
+  /**
+   * ButtonText field in *Stats → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: stats.items[].buttontext
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  buttontext: prismic.KeyTextField;
 }
 /**
  * Default variation for Stats Slice
@@ -815,6 +1165,7 @@ declare module "@prismicio/client" {
   namespace Content {
     export type {
       FooterDocumentData,
+      FooterDocumentDataSlicesSlice,
       FooterDocument,
       NavigationDocumentData,
       NavigationDocumentDataSlicesSlice,
@@ -834,6 +1185,8 @@ declare module "@prismicio/client" {
       HeadingSlice,
       HeroSliceDefaultPrimary,
       HeroSliceDefault,
+      HeroSliceSmallPrimary,
+      HeroSliceSmall,
       HeroSliceVariation,
       HeroSlice,
       NavBarLinkSliceDefaultPrimary,
@@ -841,6 +1194,10 @@ declare module "@prismicio/client" {
       NavBarLinkSliceDefault,
       NavBarLinkSliceVariation,
       NavBarLinkSlice,
+      NewsletterSliceDefaultPrimary,
+      NewsletterSliceDefault,
+      NewsletterSliceVariation,
+      NewsletterSlice,
       PageTextSliceDefaultPrimary,
       PageTextSliceDefault,
       PageTextSliceVariation,
@@ -850,10 +1207,20 @@ declare module "@prismicio/client" {
       PastTeamSliceDefault,
       PastTeamSliceVariation,
       PastTeamSlice,
+      SideContentSliceDefaultPrimary,
+      SideContentSliceDefault,
+      SideContentSliceRightContentPrimary,
+      SideContentSliceRightContent,
+      SideContentSliceVariation,
+      SideContentSlice,
       SponsorSliceDefaultItem,
       SponsorSliceDefault,
       SponsorSliceVariation,
       SponsorSlice,
+      SponsorDealsSliceDefaultItem,
+      SponsorDealsSliceDefault,
+      SponsorDealsSliceVariation,
+      SponsorDealsSlice,
       StatsSliceDefaultItem,
       StatsSliceDefault,
       StatsSliceVariation,

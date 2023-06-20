@@ -8,7 +8,24 @@
 </head>
 <body>
     <h1>hi</h1>
-    <iframe src="https://adsocunsw.substack.com/embed" width="700" height="150" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
-    <hr>
+    <!-- <iframe src="https://adsocunsw.substack.com/embed" width="400" height="150" style="background:black;" frameborder="0" scrolling="no"></iframe> -->
+    <div id="custom-substack-embed"></div>
+
+
+<script>
+  window.CustomSubstackWidget = {
+    substackUrl: "adsocunsw.substack.com",
+    placeholder: "example@gmail.com",
+    buttonText: "Subscribe",
+    theme: "custom",
+    colors: {
+      primary: "#1F2937",
+      input: "#00000000",
+      email: "#1F2937",
+      text: "#FFFFFF",
+    }
+  };
+</script>
+<script src="https://substackapi.com/widget.js" async></script>
 </body>
 </html>

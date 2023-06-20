@@ -27,7 +27,11 @@
             "page_text": { "type": "SharedSlice" },
             "past_team": { "type": "SharedSlice" },
             "heading": { "type": "SharedSlice" },
-            "facebook_events": { "type": "SharedSlice" }
+            "facebook_events": { "type": "SharedSlice" },
+            "sponsor_deals": { "type": "SharedSlice" },
+            "stats": { "type": "SharedSlice" },
+            "newsletter": { "type": "SharedSlice" },
+            "side_content": { "type": "SharedSlice" }
           }
         }
       }

@@ -1,5 +1,3 @@
-import '/styles/index.css'
-
 import Image from 'next/image'
 import { FBEvent } from '@/lib/types'
 import { displayDate } from '@/lib/util'

@@ -22,8 +22,13 @@
           }
         },
         "link": {
-          "type": "Text",
-          "config": { "label": "Link", "placeholder": "" }
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
         }
       },
       "items": {
@@ -37,8 +42,12 @@
           }
         },
         "child_link": {
-          "type": "Text",
-          "config": { "label": "Child Link", "placeholder": "" }
+          "type": "Link",
+          "config": { "label": "Child Link", "placeholder": "", "select": null }
+        },
+        "icon": {
+          "type": "Image",
+          "config": { "label": "Icon", "constraint": {}, "thumbnails": [] }
         }
       }
     }

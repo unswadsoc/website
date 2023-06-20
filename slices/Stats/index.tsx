@@ -1,5 +1,5 @@
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicLink, PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 /**
  * Props for `Stats`.
@@ -14,8 +14,20 @@ const Stats = ({ slice }: StatsProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
+      className='flex flex-col md:flex-row gap-16 my-16'
     >
-      Placeholder component for stats (variation: {slice.variation}) Slices
+      { slice.items.map((s: any, index: number) => {
+        return (
+          <div key={index} className='flex flex-col items-center'>
+            <PrismicRichText field={s.stat} />
+            <PrismicLink field={s.link}>
+              <button className="btn btn-outline mt-4 hover:scale-105">
+                {s.buttontext}
+              </button>
+            </PrismicLink> 
+          </div>
+        )
+      })}
     </section>
   );
 };

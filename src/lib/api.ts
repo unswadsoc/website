@@ -14,6 +14,7 @@ export const getEvents = async (): Promise<FBEvent[]> => {
   try {
     // const response = await get(ref(app.db(), '/events'))
     // return response.val()
+    // return []
     return [
           {
             "attending_count": 61,
