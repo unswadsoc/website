@@ -1,4 +1,3 @@
-import { Content } from '@prismicio/client';
 import { PrismicNextImage } from '@prismicio/next';
 import { PrismicLink, PrismicRichText } from '@prismicio/react';
 import { createClient } from 'prismicio';
@@ -20,25 +19,25 @@ export default async function Footer() {
         />
       </div>
 
-      { footer.data.slices.map((item: Content.NavBarLinkSlice, i: number) => {
+      { footer.data.slices.map(parent => {
         return (
-          <div key={i}>
+          <div key={JSON.stringify(parent)}>
             <span className='footer-title'>
-              <PrismicRichText field={item.primary.name}/>
+              <PrismicRichText field={parent.primary.name}/>
             </span>
-            <div className={`flex gap-4 ${item.variation === 'default' && 'flex-col'}`}>
-              { item.items.map((child, i2) => {
+            <div className={`flex gap-4 ${parent.variation === 'default' && 'flex-col'}`}>
+              { parent.items.map(child => {
                 return (
                   <PrismicLink
-                    key={i2}
+                    key={JSON.stringify(child)}
                     field={child.child_link}
                     target={child.newtab ? '_blank' : ''}
                     rel={child.newtab ? 'noopener noreferrer' : ''}
                   >
                     { child.icon.url ? (
                       <PrismicNextImage
-                        fallbackAlt=''
                         field={child.icon}
+                        fallbackAlt=''
                         width={30}
                         className='dark:invert'
                       />  

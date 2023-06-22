@@ -1,15 +1,24 @@
-import Image from 'next/image'
+import { PrismicNextImage } from '@prismicio/next'
+import { PrismicLink } from '@prismicio/react'
+import { SponsorSliceDefaultItem } from 'prismicio-types'
 
-export default function SponsorLogo({ sponsor }: any) {
+export default function SponsorLogo({
+  link,
+  logo
+}: SponsorSliceDefaultItem) {
   return (
-    <a href={sponsor.link.url} target='_blank' rel='noopener noreferrer' className='flex'>
-      <Image
-        src={sponsor.logo.url}
-        alt={sponsor.logo.alt}
+    <PrismicLink
+      field={link}
+      target='_blank'
+      rel='noopener noreferrer'
+      className='flex'
+    >
+      <PrismicNextImage
+        field={logo}
         height={10}
         width={150}
         className='object-contain'
       />
-    </a>
+    </PrismicLink>
   )
 }

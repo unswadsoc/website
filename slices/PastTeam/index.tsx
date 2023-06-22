@@ -16,9 +16,9 @@ const PastTeam = ({ slice }: PastTeamProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className='w-full max-w-2xl px-4'
     >
-      { slice.items.map((item: any) => {
+      { slice.items.map(item => {
         return (
-          <div key={item.members} className='collapse collapse-plus bg-base-300 my-4'>
+          <div key={JSON.stringify(item)} className='collapse collapse-plus bg-base-300 my-4'>
             <input type='checkbox' /> 
             <div className='collapse-title'>
               <PrismicRichText field={item.year} />

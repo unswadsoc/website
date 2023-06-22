@@ -8,7 +8,7 @@ export default async function Navigation() {
   const navigation = await client.getSingle('navigation');
 
   return (
-    <nav className="navbar bg-stone-200 bg-opacity-0 absolute">
+    <nav className="navbar bg-opacity-0 absolute">
       <div className="navbar-start w-1/3">
         <Link href='/'>
           <PrismicNextImage

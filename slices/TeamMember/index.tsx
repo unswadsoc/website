@@ -16,6 +16,7 @@ const TeamMember = ({ slice }: TeamMemberProps): JSX.Element => {
       <div className={`flex md:flex-col items-center text-center md:w-1/4 ${slice.variation === 'teamMemberRightProfile' && 'flex-row-reverse'}`}>
         <PrismicNextImage
           field={slice.primary.profile}
+          fallbackAlt=''
           className="rounded-full"
           width={150}
           height={150}

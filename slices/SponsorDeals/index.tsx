@@ -17,8 +17,8 @@ const SponsorDeals = ({ slice }: SponsorDealsProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className='flex flex-wrap w-full justify-center'
     >
-      { slice.items.map((item: any, i: number) => {
-        return <SponsorCard key={i} sponsor={item} />
+      { slice.items.map(item => {
+        return <SponsorCard key={JSON.stringify(item)} {...item} />
       })}
     </section>
   );
