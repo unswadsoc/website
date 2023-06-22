@@ -2,15 +2,14 @@ import Image from 'next/image'
 import { FBEvent } from '@/lib/types'
 import { displayDate } from '@/lib/util'
 
-export default function LongEventCard({ event }: { event: FBEvent }) {
-  const {
-    id,
-    name,
-    cover,
-    place,
-    start_time,
-    end_time,
-  } = event
+export default function LongEventCard({
+  id,
+  name,
+  cover,
+  place,
+  start_time,
+  end_time,
+}: FBEvent) {
 
   return (
     <a

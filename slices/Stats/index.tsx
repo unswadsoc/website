@@ -20,7 +20,11 @@ const Stats = ({ slice }: StatsProps): JSX.Element => {
         return (
           <div key={index} className='flex flex-col items-center'>
             <PrismicRichText field={s.stat} />
-            <PrismicLink field={s.link}>
+            <PrismicLink
+              field={s.link}
+              target={s.newtab && '_blank'}
+              rel={s.newtab && 'noopener noreferrer'}
+            >
               <button className="btn btn-outline mt-4 hover:scale-105">
                 {s.buttontext}
               </button>

@@ -410,6 +410,17 @@ export interface NavBarLinkSliceDefaultItem {
    *
    */
   icon: prismic.ImageField<never>;
+  /**
+   * newtab field in *NavigationItem → Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: nav_bar_link.items[].newtab
+   * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+   *
+   */
+  newtab: prismic.BooleanField;
 }
 /**
  * Default variation for NavigationItem Slice
@@ -425,10 +436,98 @@ export type NavBarLinkSliceDefault = prismic.SharedSliceVariation<
   Simplify<NavBarLinkSliceDefaultItem>
 >;
 /**
+ * Primary content in NavigationItem → Primary
+ *
+ */
+interface NavBarLinkSliceChildRowPrimary {
+  /**
+   * Name field in *NavigationItem → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_bar_link.primary.name
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  name: prismic.RichTextField;
+  /**
+   * Link field in *NavigationItem → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_bar_link.primary.link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+}
+/**
+ * Item in NavigationItem → Items
+ *
+ */
+export interface NavBarLinkSliceChildRowItem {
+  /**
+   * Child Name field in *NavigationItem → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_bar_link.items[].child_name
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  child_name: prismic.RichTextField;
+  /**
+   * Child Link field in *NavigationItem → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_bar_link.items[].child_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  child_link: prismic.LinkField;
+  /**
+   * Icon field in *NavigationItem → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_bar_link.items[].icon
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  icon: prismic.ImageField<never>;
+  /**
+   * newtab field in *NavigationItem → Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: nav_bar_link.items[].newtab
+   * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+   *
+   */
+  newtab: prismic.BooleanField;
+}
+/**
+ * ChildRow variation for NavigationItem Slice
+ *
+ * - **API ID**: `childRow`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NavBarLinkSliceChildRow = prismic.SharedSliceVariation<
+  "childRow",
+  Simplify<NavBarLinkSliceChildRowPrimary>,
+  Simplify<NavBarLinkSliceChildRowItem>
+>;
+/**
  * Slice variation for *NavigationItem*
  *
  */
-type NavBarLinkSliceVariation = NavBarLinkSliceDefault;
+type NavBarLinkSliceVariation =
+  | NavBarLinkSliceDefault
+  | NavBarLinkSliceChildRow;
 /**
  * NavigationItem Shared Slice
  *
@@ -929,6 +1028,17 @@ export interface StatsSliceDefaultItem {
    *
    */
   buttontext: prismic.KeyTextField;
+  /**
+   * newTab field in *Stats → Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: stats.items[].newtab
+   * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+   *
+   */
+  newtab: prismic.BooleanField;
 }
 /**
  * Default variation for Stats Slice
@@ -1192,6 +1302,9 @@ declare module "@prismicio/client" {
       NavBarLinkSliceDefaultPrimary,
       NavBarLinkSliceDefaultItem,
       NavBarLinkSliceDefault,
+      NavBarLinkSliceChildRowPrimary,
+      NavBarLinkSliceChildRowItem,
+      NavBarLinkSliceChildRow,
       NavBarLinkSliceVariation,
       NavBarLinkSlice,
       NewsletterSliceDefaultPrimary,

@@ -15,7 +15,7 @@ const Sponsor = ({ slice }: SponsorProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className='flex flex-wrap-reverse gap-x-20 gap-y-16 justify-center max-w-5xl px-4 my-32'
+      className='flex flex-wrap-reverse gap-x-20 gap-y-16 justify-center max-w-5xl px-4'
     >         
       { slice.items.map((s: any) => {
         return (

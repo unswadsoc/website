@@ -15,7 +15,7 @@ const SideContent = ({ slice }: SideContentProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`w-full justify-between max-w-4xl flex flex-col items-center md:flex-row my-8 ${slice.variation === 'rightContent' && 'md:flex-row-reverse'}`}
+      className={`w-full justify-between max-w-4xl flex flex-col items-center md:flex-row my-8 px-4 ${slice.variation === 'rightContent' && 'md:flex-row-reverse'}`}
     >
       <PrismicNextImage
         field={slice.primary.image}

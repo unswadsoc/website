@@ -8,9 +8,8 @@ export default async function Navigation() {
   const navigation = await client.getSingle('navigation');
 
   return (
-    // <nav className="navbar bg-stone-200 sticky top-0 z-50">
     <nav className="navbar bg-stone-200 bg-opacity-0 absolute">
-      <div className="navbar-start">
+      <div className="navbar-start w-1/3">
         <Link href='/'>
           <PrismicNextImage
             field={navigation.data.logo}
@@ -20,62 +19,30 @@ export default async function Navigation() {
           />
         </Link>
       </div>
-      <div className="navbar-end hidden lg:flex">
+      <div className="navbar-end hidden lg:flex w-2/3">
         <ul className="menu menu-horizontal px-1">
-          {/* Renders top-level links. */}
           {navigation.data.slices.map((slice) => {
             return (
               <li className='mx-1' key={slice.id}>
-                <PrismicLink className='font-semibold text-white text-base' field={slice.primary.link}>
+                <PrismicLink className='font-semibold text-base' field={slice.primary.link}>
                   <PrismicText field={slice.primary.name} />
                 </PrismicLink>
-
-                {/* Renders child links, if present. */}
-                {slice.items.length > 0 && (
-                  <ul>
-                    {slice.items.map((item) => {
-                      return (
-                        <li key={JSON.stringify(item)}>
-                          <PrismicLink className='font-semibold' field={item.child_link}>
-                            <PrismicText field={item.child_name} />
-                          </PrismicLink>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                )}
               </li>
             )
           })}
         </ul>
       </div>
-      <div className="dropdown navbar-end flex lg:hidden">
+      <div className="dropdown navbar-end flex lg:hidden w-2/3">
         <label tabIndex={0} className="btn btn-ghost lg:hidden text-white">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
         </label>
         <ul tabIndex={0} className="menu menu-compact dropdown-content p-2 shadow bg-base-100 rounded-box w-52 top-0">
-          {/* Renders top-level links. */}
           {navigation.data.slices.map((slice) => {
             return (
               <li className='mx-1' key={slice.id}>
                 <PrismicLink className='font-semibold' field={slice.primary.link}>
                   <PrismicText field={slice.primary.name} />
                 </PrismicLink>
-
-                {/* Renders child links, if present. */}
-                {slice.items.length > 0 && (
-                  <ul>
-                    {slice.items.map((item) => {
-                      return (
-                        <li key={JSON.stringify(item)}>
-                          <PrismicLink className='font-semibold' field={item.child_link}>
-                            <PrismicText field={item.child_name} />
-                          </PrismicLink>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                )}
               </li>
             )
           })}

@@ -38,6 +38,13 @@
 							"value": "settlers",
 							"type": "Text"
 						}
+					],
+					[
+						"newtab",
+						{
+							"__TYPE__": "BooleanContent",
+							"value": false
+						}
 					]
 				]
 			}

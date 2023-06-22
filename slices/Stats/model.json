@@ -34,6 +34,15 @@
         "buttontext": {
           "type": "Text",
           "config": { "label": "ButtonText", "placeholder": "" }
+        },
+        "newtab": {
+          "type": "Boolean",
+          "config": {
+            "label": "newTab",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
         }
       }
     }

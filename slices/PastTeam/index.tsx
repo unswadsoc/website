@@ -14,7 +14,7 @@ const PastTeam = ({ slice }: PastTeamProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className='w-full max-w-2xl my-4'
+      className='w-full max-w-2xl px-4'
     >
       { slice.items.map((item: any) => {
         return (

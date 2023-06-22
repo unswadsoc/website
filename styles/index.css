@@ -24,4 +24,13 @@
     .hero {
         min-height: 70vh;
     }
+    /* Ensures the area around a menu link also performs redirect */
+    .menu a {
+        display: flex;
+        padding: 8px 16px;
+    }
+    .menu-horizontal a {
+        color: white !important;
+    }
+
   }

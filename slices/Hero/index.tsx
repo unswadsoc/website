@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
@@ -11,12 +12,12 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
   const height = slice.variation === "default" && '80vh'
-  // const height = slice.variation === 'small' && '50vh'
+
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`hero min-h-[${height}]`}
+      className={`hero min-h-[${height}] mb-10`}
       style={{ backgroundImage: `url('${slice.primary.image.url}')` }}
     >
         <div className='hero-overlay bg-opacity-60'></div>

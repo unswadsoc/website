@@ -6,10 +6,6 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
  */
 export type TextProps = SliceComponentProps<Content.PageTextSlice>;
 
-const components = {
-
-}
-
 /**
  * Component for "Text" Slices.
  */
@@ -18,12 +14,13 @@ const Text = ({ slice }: TextProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="max-w-4xl p-10"
+      className="max-w-4xl px-4"
     >
       <PrismicRichText
         field={slice.primary.text}
         components={{
           paragraph: ({ children }) => <p className='my-4'>{children}</p>,
+          hyperlink: ({ children }) => <a className='link text-blue-600'>{children}</a>,
         }}
       />
     </section>

@@ -22,7 +22,7 @@ const Newsletter = ({ slice }: NewsletterProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="py-16 mt-8 text-center flex flex-col gap-y-4 w-full bg-stone-200"
+      className="py-8 text-center flex flex-col gap-y-4 w-full"
     >
       <PrismicRichText field={slice.primary.text}/>
       <div id="custom-substack-embed" className="w-72 md:w-96 m-auto"/>

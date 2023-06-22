@@ -48,6 +48,71 @@
         "icon": {
           "type": "Image",
           "config": { "label": "Icon", "constraint": {}, "thumbnails": [] }
+        },
+        "newtab": {
+          "type": "Boolean",
+          "config": {
+            "label": "newtab",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        }
+      }
+    },
+    {
+      "id": "childRow",
+      "name": "ChildRow",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Name",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        }
+      },
+      "items": {
+        "child_name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Child Name",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "child_link": {
+          "type": "Link",
+          "config": { "label": "Child Link", "placeholder": "", "select": null }
+        },
+        "icon": {
+          "type": "Image",
+          "config": { "label": "Icon", "constraint": {}, "thumbnails": [] }
+        },
+        "newtab": {
+          "type": "Boolean",
+          "config": {
+            "label": "newtab",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
         }
       }
     }

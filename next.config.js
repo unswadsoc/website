@@ -10,13 +10,7 @@ const nextConfig = {
           },
           {
             protocol: 'https',
-            hostname: 'scontent.fsyd5-1.fna.fbcdn.net',
-            port: '',
-            pathname: '**',
-          },
-          {
-            protocol: 'https',
-            hostname: 'scontent-atl3-1.xx.fbcdn.net',
+            hostname: '**.fbcdn.net',
             port: '',
             pathname: '**',
           },
