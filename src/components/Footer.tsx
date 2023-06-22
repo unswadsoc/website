@@ -12,6 +12,7 @@ export default async function Footer() {
       <div>
         <PrismicNextImage
           field={footer.data.logo}
+          fallbackAlt=''
           width={200}
           height={30}
           priority
@@ -35,7 +36,12 @@ export default async function Footer() {
                     rel={child.newtab ? 'noopener noreferrer' : ''}
                   >
                     { child.icon.url ? (
-                      <PrismicNextImage field={child.icon} width={30} className='dark:invert'/>  
+                      <PrismicNextImage
+                        fallbackAlt=''
+                        field={child.icon}
+                        width={30}
+                        className='dark:invert'
+                      />  
                     ) : (
                       <PrismicRichText field={child.child_name}/>
                     )}

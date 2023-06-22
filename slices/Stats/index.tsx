@@ -22,8 +22,8 @@ const Stats = ({ slice }: StatsProps): JSX.Element => {
             <PrismicRichText field={s.stat} />
             <PrismicLink
               field={s.link}
-              target={s.newtab && '_blank'}
-              rel={s.newtab && 'noopener noreferrer'}
+              target={s.newtab ? '_blank' : ''}
+              rel={s.newtab ? 'noopener noreferrer' : ''}
             >
               <button className="btn btn-outline mt-4 hover:scale-105">
                 {s.buttontext}

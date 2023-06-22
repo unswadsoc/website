@@ -14,7 +14,8 @@ export default function SponsorCard({ sponsor }: any) {
       <figure>
         <PrismicNextImage
           field={sponsor.image}
-          alt=""
+          alt={sponsor.image.alt}
+          fallbackAlt=''
           className="min-h-[150px] p-2 object-contain"
           width={150}
           height={150}

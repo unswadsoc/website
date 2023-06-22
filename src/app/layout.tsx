@@ -7,7 +7,7 @@ import Footer from "../components/Footer"
 import Navigation from "../components/Navigation"
 
 export const metadata = {
-  title: 'ADSOC UNSW',
+  title: 'UNSW Adventure Society',
   description: 'Alpaca my bags.',
 }
 

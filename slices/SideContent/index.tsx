@@ -19,7 +19,7 @@ const SideContent = ({ slice }: SideContentProps): JSX.Element => {
     >
       <PrismicNextImage
         field={slice.primary.image}
-        alt=""
+        fallbackAlt=''
         className="object-contain rounded-lg overflow-hidden mb-4"
         width={400}
         height={150}

@@ -16,6 +16,7 @@ export default async function Navigation() {
             width={160}
             height={50}
             className='object-contain pl-4 dark:invert'
+            fallbackAlt=''
           />
         </Link>
       </div>
