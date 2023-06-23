@@ -5,29 +5,28 @@ import { FBEvent, Tense } from "./types"
 
 dayjs.extend(utc)
 dayjs.extend(timezone) // dependent on utc plugin
-dayjs.tz.setDefault('Australia/Sydney')
 
-export const parseDate = (date: string) => {
-    return dayjs(date)
+export const parseDate = (date?: string) => {
+    return dayjs(date).tz('Australia/Sydney')
 }
 
 export const filterEvents = (events: FBEvent[], tense: Tense) => {
     return events.filter(event => {
         const filterKey = event.end_time ?? event.start_time
-        const currentDate = dayjs()
+        const currentDate = parseDate()
         if (tense == Tense.UPCOMING) return parseDate(filterKey) >= currentDate
         if (tense == Tense.PAST) return parseDate(filterKey) < currentDate
     })
 }
 
 export const displayDate = (startTime: string, endTime?: string) => {
-    const start = dayjs(startTime)
+    const start = parseDate(startTime)
 
     if (!endTime) {
         return start.format('ddd D MMM, h:mmA')
     }
 
-    const end = dayjs(endTime)
+    const end = parseDate(endTime)
     const duration = end.diff(start, 'hour')
 
     return duration <= 24
