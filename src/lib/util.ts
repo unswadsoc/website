@@ -1,14 +1,20 @@
 import dayjs from "dayjs"
+import utc from "dayjs/plugin/utc"
+import timezone from "dayjs/plugin/timezone"
 import { FBEvent, Tense } from "./types"
 
-export const parseDate = (date: string): Date => {
-    return new Date(date)
+dayjs.extend(utc)
+dayjs.extend(timezone) // dependent on utc plugin
+dayjs.tz.setDefault('Australia/Sydney')
+
+export const parseDate = (date: string) => {
+    return dayjs(date)
 }
 
 export const filterEvents = (events: FBEvent[], tense: Tense) => {
     return events.filter(event => {
         const filterKey = event.end_time ?? event.start_time
-        const currentDate = new Date()
+        const currentDate = dayjs()
         if (tense == Tense.UPCOMING) return parseDate(filterKey) >= currentDate
         if (tense == Tense.PAST) return parseDate(filterKey) < currentDate
     })
