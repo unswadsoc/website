@@ -20,7 +20,15 @@ const Text = ({ slice }: TextProps): JSX.Element => {
         field={slice.primary.text}
         components={{
           paragraph: ({ children }) => <p className='my-4'>{children}</p>,
-          hyperlink: ({ children }) => <a className='link text-blue-600'>{children}</a>,
+          hyperlink: ({ node, children }) =>
+            <a
+              className='link text-blue-600'
+              href={node.data.url}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              { children }
+            </a>,
         }}
       />
     </section>
