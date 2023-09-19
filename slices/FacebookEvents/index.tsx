@@ -15,7 +15,7 @@ export type FacebookEventsProps =
  * Component for "FacebookEvents" Slices.
  */
 const FacebookEvents = ({ slice, context }: FacebookEventsProps): JSX.Element => {
-  const events = (context as { events: FBEvent[]}).events
+  const events = (context as { events: FBEvent[]}).events || []
 
   return (
     <section
@@ -26,7 +26,7 @@ const FacebookEvents = ({ slice, context }: FacebookEventsProps): JSX.Element =>
       { slice.variation === "upcoming" &&
         <UpcomingEvents events={filterEvents(events, Tense.UPCOMING)} />
       }
-      { slice.variation === "past" &&
+      { slice.variation === "past" && events &&
         <PastEvents events={filterEvents(events, Tense.PAST)} />
       }
     </section>
