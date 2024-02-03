@@ -1,34 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align='center'>
+  <h1>UNSW Adventure Society's Website</h1>
+  <h4>Bringing adventure to UNSW students since 2009</h4>
+</div>
+<p align="center">
+  <a href="https://unswadsoc.com">Website</a> •
+  <a href="#about">Tools</a> •
+  <a href="#getting started">Getting started</a>  •
+  <a href="#contributing">Contributing</a>
+</p>
+
+## Tools
+
+* Content Management System (CMS): [Prismic](https://prismic.io/)
+* Frontend Framework: [Next.js](https://nextjs.org/)
+* Deployment: [Vercel](https://vercel.com/)
+* Payments: [Stripe](https://stripe.com/au)
 
 ## Getting Started
 
-First, run the development server:
+> Note:  If you need to change website content (e.g. text and images) please do so by visiting Prismic.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Here are some use cases of why changes would need to be made to this repository:
+* The colours of the website need to be changed
+* A new page needs to be introduced into the website
+* The design/layout of a prismic slice needs to be modified
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Prerequisites**
+* [Git](https://git-scm.com/)
+* [Node.js](https://nodejs.org/en) (tested on v20.8.1) and [yarn](https://yarnpkg.com/) (tested on 1.22.19)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To perform general changes:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Install required dependencies with `yarn install`
+2. Run a local development server with `yarn dev`. This will fetch content hosted from prismic.
+3. Navigate to http://localhost:3000/
+4. Perform desired changes
 
-## Learn More
+To modify or introduce new page types, custom types or slices:
 
-To learn more about Next.js, take a look at the following resources:
+1. Run `yarn slicemachine` in a seperate terminal
+2. Navigate to http://localhost:9999/
+3. Log into prismic
+4. Perform desired changes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+For more information on modelling content, please refer to the [prismic documentation](https://prismic.io/docs).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contributing
 
-## Deploy on Vercel
+If you have an idea or improvement for the website or you would like to make a contribution, please reach out to us at [contact@unswadsoc.com](mailto:contact@unswadsoc.com)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Contributors ♥️**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<a href="https://github.com/unswadsoc/website/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=unswadsoc/website" />
+</a>
