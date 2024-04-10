@@ -134,6 +134,7 @@ type PageDocumentDataSlicesSlice =
   | HeadingSlice
   | FacebookEventsSlice
   | SponsorDealsSlice
+  | EventGalleryCardSlice
   | StatsSlice
   | NewsletterSlice
   | SideContentSlice;
@@ -152,6 +153,72 @@ export type AllDocumentTypes =
   | FooterDocument
   | NavigationDocument
   | PageDocument;
+/**
+ * Item in EventGalleryCard → Items
+ *
+ */
+export interface EventGalleryCardSliceDefaultItem {
+  /**
+   * image field in *EventGalleryCard → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_gallery_card.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * eventName field in *EventGalleryCard → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_gallery_card.items[].eventname
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  eventname: prismic.RichTextField;
+  /**
+   * eventGallery field in *EventGalleryCard → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_gallery_card.items[].eventgallery
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  eventgallery: prismic.LinkField;
+}
+/**
+ * Default variation for EventGalleryCard Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type EventGalleryCardSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<EventGalleryCardSliceDefaultItem>
+>;
+/**
+ * Slice variation for *EventGalleryCard*
+ *
+ */
+type EventGalleryCardSliceVariation = EventGalleryCardSliceDefault;
+/**
+ * EventGalleryCard Shared Slice
+ *
+ * - **API ID**: `event_gallery_card`
+ * - **Description**: `EventGalleryCard`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type EventGalleryCardSlice = prismic.SharedSlice<
+  "event_gallery_card",
+  EventGalleryCardSliceVariation
+>;
 /**
  * Default variation for FacebookEvents Slice
  *
@@ -1284,6 +1351,10 @@ declare module "@prismicio/client" {
       PageDocumentDataSlicesSlice,
       PageDocument,
       AllDocumentTypes,
+      EventGalleryCardSliceDefaultItem,
+      EventGalleryCardSliceDefault,
+      EventGalleryCardSliceVariation,
+      EventGalleryCardSlice,
       FacebookEventsSliceDefault,
       FacebookEventsSliceUpcoming,
       FacebookEventsSlicePast,

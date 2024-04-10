@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  event_gallery_card: dynamic(() => import("./EventGalleryCard")),
   facebook_events: dynamic(() => import("./FacebookEvents")),
   heading: dynamic(() => import("./Heading")),
   hero: dynamic(() => import("./Hero")),
