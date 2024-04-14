@@ -1,0 +1,40 @@
+{
+  "id": "event_gallery_card",
+  "type": "SharedSlice",
+  "name": "EventGalleryCard",
+  "description": "EventGalleryCard",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": { "label": "image", "constraint": {}, "thumbnails": [] }
+        },
+        "eventname": {
+          "type": "StructuredText",
+          "config": {
+            "label": "eventName",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "eventgallery": {
+          "type": "Link",
+          "config": {
+            "label": "eventGallery",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      }
+    }
+  ]
+}

@@ -29,6 +29,7 @@
             "heading": { "type": "SharedSlice" },
             "facebook_events": { "type": "SharedSlice" },
             "sponsor_deals": { "type": "SharedSlice" },
+            "event_gallery_card": { "type": "SharedSlice" },
             "stats": { "type": "SharedSlice" },
             "newsletter": { "type": "SharedSlice" },
             "side_content": { "type": "SharedSlice" }
