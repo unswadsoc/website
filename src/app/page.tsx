@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 import { createClient } from '../../prismicio';
 import { getEvents } from '../lib/api';
 import { SliceZone } from '@prismicio/react';
@@ -7,15 +9,13 @@ export default async function Home() {
   const client = createClient();
   const page = await client.getByUID('page', 'home');
 
-  const events = await getEvents()
+  const events = await getEvents();
 
   return (
-    <>
-      <SliceZone
-        slices={page.data.slices}
-        components={components}
-        context={{ events }}
-      />
-    </>
-  )
+    <SliceZone
+      slices={page.data.slices}
+      components={components}
+      context={{ events }}
+    />
+  );
 }
