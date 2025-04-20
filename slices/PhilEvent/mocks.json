@@ -1,0 +1,89 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"eventname": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing sint quis cupidatat aute consequat do."
+						}
+					}
+				]
+			},
+			"eventdescription": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Quis commodo cupidatat ex fugiat nisi aliquip irure irure dolor enim commodo est. Quis anim cillum laboris quis reprehenderit adipisicing ullamco anim amet ut tempor nulla ipsum excepteur. Occaecat laborum ad cillum officia sit ipsum mollit."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"eventphoto",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+								"width": 4000,
+								"height": 6000
+							},
+							"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+							"width": 4000,
+							"height": 6000,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					],
+					[
+						"charityphoto",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68",
+								"width": 8640,
+								"height": 8640
+							},
+							"url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68",
+							"width": 8640,
+							"height": 8640,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					]
+				]
+			}
+		]
+	}
+]

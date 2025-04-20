@@ -1,0 +1,54 @@
+{
+  "id": "phil_event",
+  "type": "SharedSlice",
+  "name": "PhilEvent",
+  "description": "PhilEvent",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "eventname": {
+          "type": "StructuredText",
+          "config": {
+            "label": "EventName",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "eventdescription": {
+          "type": "StructuredText",
+          "config": {
+            "label": "EventDescription",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        }
+      },
+      "items": {
+        "eventphoto": {
+          "type": "Image",
+          "config": {
+            "label": "EventPhoto",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "charityphoto": {
+          "type": "Image",
+          "config": {
+            "label": "CharityPhoto",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

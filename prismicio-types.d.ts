@@ -792,6 +792,88 @@ export type PastTeamSlice = prismic.SharedSlice<
   PastTeamSliceVariation
 >;
 /**
+ * Primary content in PhilEvent → Primary
+ *
+ */
+interface PhilEventSliceDefaultPrimary {
+  /**
+   * EventName field in *PhilEvent → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: phil_event.primary.eventname
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  eventname: prismic.RichTextField;
+  /**
+   * EventDescription field in *PhilEvent → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: phil_event.primary.eventdescription
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  eventdescription: prismic.RichTextField;
+}
+/**
+ * Item in PhilEvent → Items
+ *
+ */
+export interface PhilEventSliceDefaultItem {
+  /**
+   * EventPhoto field in *PhilEvent → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: phil_event.items[].eventphoto
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  eventphoto: prismic.ImageField<never>;
+  /**
+   * CharityPhoto field in *PhilEvent → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: phil_event.items[].charityphoto
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  charityphoto: prismic.ImageField<never>;
+}
+/**
+ * Default variation for PhilEvent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PhilEventSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PhilEventSliceDefaultPrimary>,
+  Simplify<PhilEventSliceDefaultItem>
+>;
+/**
+ * Slice variation for *PhilEvent*
+ *
+ */
+type PhilEventSliceVariation = PhilEventSliceDefault;
+/**
+ * PhilEvent Shared Slice
+ *
+ * - **API ID**: `phil_event`
+ * - **Description**: `PhilEvent`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PhilEventSlice = prismic.SharedSlice<
+  "phil_event",
+  PhilEventSliceVariation
+>;
+/**
  * Primary content in SideContent → Primary
  *
  */
@@ -1391,6 +1473,11 @@ declare module "@prismicio/client" {
       PastTeamSliceDefault,
       PastTeamSliceVariation,
       PastTeamSlice,
+      PhilEventSliceDefaultPrimary,
+      PhilEventSliceDefaultItem,
+      PhilEventSliceDefault,
+      PhilEventSliceVariation,
+      PhilEventSlice,
       SideContentSliceDefaultPrimary,
       SideContentSliceDefault,
       SideContentSliceRightContentPrimary,

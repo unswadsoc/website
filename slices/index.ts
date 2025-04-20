@@ -11,6 +11,7 @@ export const components = {
   newsletter: dynamic(() => import("./Newsletter")),
   page_text: dynamic(() => import("./Text")),
   past_team: dynamic(() => import("./PastTeam")),
+  phil_event: dynamic(() => import("./PhilEvent")),
   side_content: dynamic(() => import("./SideContent")),
   sponsor: dynamic(() => import("./Sponsors")),
   sponsor_deals: dynamic(() => import("./SponsorDeals")),
