@@ -32,7 +32,8 @@
             "event_gallery_card": { "type": "SharedSlice" },
             "stats": { "type": "SharedSlice" },
             "newsletter": { "type": "SharedSlice" },
-            "side_content": { "type": "SharedSlice" }
+            "side_content": { "type": "SharedSlice" },
+            "phil_event": { "type": "SharedSlice" }
           }
         }
       }

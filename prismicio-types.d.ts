@@ -137,7 +137,8 @@ type PageDocumentDataSlicesSlice =
   | EventGalleryCardSlice
   | StatsSlice
   | NewsletterSlice
-  | SideContentSlice;
+  | SideContentSlice
+  | PhilEventSlice;
 /**
  * Page document from Prismic
  *
