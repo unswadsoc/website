@@ -817,22 +817,22 @@ interface PhilEventSliceDefaultPrimary {
    *
    */
   eventdescription: prismic.RichTextField;
+  /**
+   * EventPhoto field in *PhilEvent → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: phil_event.primary.eventphoto
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  eventphoto: prismic.ImageField<never>;
 }
 /**
  * Item in PhilEvent → Items
  *
  */
 export interface PhilEventSliceDefaultItem {
-  /**
-   * EventPhoto field in *PhilEvent → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: phil_event.items[].eventphoto
-   * - **Documentation**: https://prismic.io/docs/core-concepts/image
-   *
-   */
-  eventphoto: prismic.ImageField<never>;
   /**
    * CharityPhoto field in *PhilEvent → Items*
    *

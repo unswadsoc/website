@@ -6,10 +6,6 @@ import { PrismicNextImage } from "@prismicio/next";
 export type PhilEventProps = SliceComponentProps<Content.PhilEventSlice>;
 
 const PhilEvent = ({ slice }: PhilEventProps): JSX.Element => {
-  const eventPhotos = slice.items
-    .map((item) => item.eventphoto)
-    .filter((photo) => photo?.url);
-
   const charityPhotos = slice.items
     .map((item) => item.charityphoto)
     .filter((logo) => logo?.url);
@@ -54,18 +50,17 @@ const PhilEvent = ({ slice }: PhilEventProps): JSX.Element => {
             </div>
           )}
         </div>
-
-        {/* Image Column */}
-        {eventPhotos[0] && (
-          <div className="h-full flex items-center justify-center">
-            <div className="aspect-[2796/1290] w-full overflow-hidden rounded-xl">
-              <PrismicNextImage
-                field={eventPhotos[0]}
-                className="object-cover w-full h-full"
-              />
+          {/* Image Column */}
+          {slice.primary.eventphoto?.url && (
+            <div className="h-full flex items-center justify-center">
+              <div className="aspect-[2796/1290] w-full overflow-hidden rounded-xl">
+                <PrismicNextImage
+                  field={slice.primary.eventphoto}
+                  className="object-cover w-full h-full"
+                />
+              </div>
             </div>
-          </div>
-        )}
+          )}
       </div>
     </section>
   );
